@@ -14,6 +14,13 @@
     font-weight: normal;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'Danjo-bold-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/Danjo-bold-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
         * {
             margin: 0;
             padding: 0;
@@ -116,7 +123,7 @@ filter: brightness(0.5);
         }
 
         .banner-text {
-            font-family: 'PartialSansKR-Regular';
+            font-family: 'Danjo-bold-Regular';
             font-size: 24px;
             font-weight: 400;
             letter-spacing: 2px;
@@ -127,38 +134,24 @@ filter: brightness(0.5);
             font-weight: 400;
         }
 
-        .content-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            padding: 60px 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-        }
+.content-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 60px;
+    padding: 60px 40px;
+    max-width: 700px;
+    margin: auto;
+    position: relative;}
 
-        .content-section2 {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-            padding: 60px 40px;
-            max-width: 1200px;
-            margin: auto;
-            position: relative;
-        }
-
-        .content-section3 {
-            display: flex;
-            gap: 20px;
-            padding: 60px 40px;
-            max-width: 1200px;
-            margin: auto;
-            position: relative;
-        }
+        .content-column {
+    width: 100%;
+    text-align: center;
+}
 
         .content-column h2 {
-            font-size: 30px;
+            font-size: 0px;
             font-weight: 400;
             margin-bottom: 30px;
             color: #fff;
@@ -166,11 +159,12 @@ filter: brightness(0.5);
         }
 
         .content-column p {
-            font-size: 16px;
+            font-size: 18px;
             line-height: 1.8;
             color: #ccc;
             margin-bottom: 20px;
-            font-weight: 400;
+            font-weight: 700;
+            text-align: center;
         }
 
         .tweet-mockup {
@@ -260,8 +254,8 @@ filter: brightness(0.5);
             border-radius: 50%;
             background: linear-gradient(135deg, #ff0000, #cc0000);
             cursor: pointer;
-            top: 50%;
-            transform: translateY(-50%);
+            bottom: 20px;  /* Changed from top to bottom */
+            transform: none;  /* Removed translateY */
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
@@ -269,6 +263,7 @@ filter: brightness(0.5);
             color: white;
             font-size: 24px;
             box-shadow: 0 2px 10px rgba(255, 0, 0, 0.3);
+            z-index: 1000;
         }
 
         .circle-button a {
@@ -282,7 +277,7 @@ filter: brightness(0.5);
         .circle-button:hover {
             background: #ffffff;
             color: #ff0000;
-            transform: translateY(-50%) scale(1.2);
+            transform: translateY(-20%) scale(1.1);
             box-shadow: 10px 10px 10px rgba(255, 0, 0, 0.5);
         }
 
@@ -290,13 +285,57 @@ filter: brightness(0.5);
             left: 20px; /* Change from -80px to 20px */
         }
 
+
         .circle-button.right {
             right: 20px; /* Change from -80px to 20px */
         }
 
+        .main-button {
+            position: fixed;
+            bottom: 20px;  /* Changed from top to bottom */
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #ff0000, #cc0000);
+            color: white;
+            border: 1px solid #ffffff;
+            border-radius: 25px;
+            text-decoration: none;
+            font-family: 'Orbit', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(255, 0, 0, 0.3);
+            z-index: 1000;
+        }
+
+        .main-button:hover {
+            background: #ffffff;
+            color: #ff0000;
+            transform: translateX(-50%) scale(1.1);
+            box-shadow: 0 4px 20px rgba(255, 0, 0, 0.5);
+        }
+
+        .bottom-gradient {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    background: linear-gradient(to top, 
+        rgba(0,0,0,0.9) 0%,
+        rgba(0,0,0,0.7) 40%,
+        rgba(0,0,0,0) 100%);
+    z-index: 999;
+    pointer-events: none;
+}
+    </style>
+
     </style>
 </head>
 <body>
+    <a href="https://ms-choi2057.github.io/finalterm/" class="main-button">Streisand Effect</a>
     <div class="header-section">
         <div class="meme-grid">
             <div class="meme-item">
@@ -335,25 +374,26 @@ filter: brightness(0.5);
         </div>
 
         <div class="content-column">
-
             <p>이 용어가 유래한 <span class="highlight">2003년 미국의 유명 배우이자 가수인 바브라 스트라이샌드의 소송 사건으로 거슬러 올라갑니다.</span> 당시 캘리포니아 해안선 사진을 촬영한 사진작가에게 자신의 저택이 포함되어 있다며 사생활 침해를 이유로 기록삭제를 요구하며 소송을 제기했으나, 이는 오히려 언론의 큰 관심을 불러일으켰고, 해당 사진에 접근하는 사람이 급성장 초기 수백 명에서 불과 수십만 명으로 폭증하여 '스트라이샌드 효과'라고 부르게 되었습니다.</p>
         </div>
     </div>
-        <div class="content-section2">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d250.83174082046457!2d-118.79113099999998!3d34.015555!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80e818e0eaab7f69%3A0xcd5102cdbb866e2c!2s6836%20Zumirez%20Dr%2C%20Malibu%2C%20CA%2090265!5e1!3m2!1sko!2sus!4v1749041632874!5m2!1sko!2sus" width="1000" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="content-section">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d250.83174082046457!2d-118.79113099999998!3d34.015555!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80e818e0eaab7f69%3A0xcd5102cdbb866e2c!2s6836%20Zumirez%20Dr%2C%20Malibu%2C%20CA%2090265!5e1!3m2!1sko!2sus!4v1749041632874!5m2!1sko!2sus" width="500" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             <p style="padding-top:15px;">당시 바브라 스트라이샌드의 자택 지도</p>
         </div>
-      <div class="content-section2" style="padding-top: 100px;">
-            <img src="number.png" width="30%">
+      <div class="content-section" style="padding-top: 100px;">
+            <img src="number.png" width="50%">
             <p style="padding-top:15px;">소송에 대한 뉴스 보도 이후 그녀의 자택 이미지의 조회수 기록</p>
         </div>
-            <div class="content-section2" style="padding-top: 100px;">
-            <img src="number2.png" width="30%">
-            <p style="padding-top:15px;">소송 초기에 청구된 보상 비용. 하지만 패소 이후 소송 관련 비용까지 다 토해내야 했다.</p>
+        <div class="content-section" style="padding-top: 150px;">
+        <div class="content-column">
+            <p>인터넷과 소셜 미디어의 발달로 정보 확산 속도가 빨라지면서, 대중은 금지되거나 삭제되는 정보에 더욱 매력을 느끼고 자발적으로 공유하려는 경향을 보입니다. 이는 단순한 반항심을 넘어 정보 자유에 대한 집단적 요구로 해석될 수 있습니다</p>
+
         </div>
     
         <a href="https://ms-choi2057.github.io/finalterm/"><button class="circle-button left">◀</button></a>
         <a href="https://ms-choi2057.github.io/finalterm8/"><button class="circle-button right">▶</button></a>
     </div>
+    <div class="bottom-gradient"></div>
 </body>
 </html>
