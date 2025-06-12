@@ -263,7 +263,7 @@ filter: brightness(0.5);
             color: white;
             font-size: 24px;
             box-shadow: 0 2px 10px rgba(255, 0, 0, 0.3);
-            z-index: 1000;
+            z-index: 1001;  /* Increased z-index */
         }
 
         .circle-button a {
@@ -307,7 +307,7 @@ filter: brightness(0.5);
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 2px 10px rgba(255, 0, 0, 0.3);
-            z-index: 1000;
+            z-index: 1001;  /* Increased z-index */
         }
 
         .main-button:hover {
@@ -327,8 +327,35 @@ filter: brightness(0.5);
         rgba(0,0,0,0.9) 0%,
         rgba(0,0,0,0.7) 40%,
         rgba(0,0,0,0) 100%);
-    z-index: 999;
+    z-index: 998;  /* Decreased z-index */
     pointer-events: none;
+}
+
+.footer {
+    background: transparent;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 100px;  /* Increased margin-top */
+    position: relative;
+    z-index: 1000;
+    padding-bottom: 100px;  /* Added padding-bottom */
+}
+
+.footer p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #999;
+}
+
+.footer a {
+    color: #ff0000;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #ffffff;
 }
     </style>
 
@@ -390,10 +417,20 @@ filter: brightness(0.5);
             <p>인터넷과 소셜 미디어의 발달로 정보 확산 속도가 빨라지면서, 대중은 금지되거나 삭제되는 정보에 더욱 매력을 느끼고 자발적으로 공유하려는 경향을 보입니다. 이는 단순한 반항심을 넘어 정보 자유에 대한 집단적 요구로 해석될 수 있습니다</p>
 
         </div>
-    
-        <a href="https://ms-choi2057.github.io/finalterm_final/"><button class="circle-button left">◀</button></a>
-        <a href="https://ms-choi2057.github.io/finalterm3/"><button class="circle-button right">▶</button></a>
     </div>
+
+    <!-- Place navigation buttons -->
+    <a href="https://ms-choi2057.github.io/finalterm/"><button class="circle-button left">◀</button></a>
+    <a href="https://ms-choi2057.github.io/finalterm3/"><button class="circle-button right">▶</button></a>
+    
+    <!-- Add footer -->
+    <footer class="footer">
+        <p>© 2025 Streisand Effect Project</p>
+        <p>Made with ❤️ by <a href="https://www.instagram.com/post_designerseok/">Minseok Choi</a></p>
+        <p>Contact: alstjr2057@naver.com</p>
+    </footer>
+
+    <!-- Bottom gradient should be last -->
     <div class="bottom-gradient"></div>
 </body>
 </html>
